@@ -38,3 +38,26 @@ If you don't have Shopify CLI installed to your computer, navigate to the [insta
 ## Not a student
 
 If you're not a student, you can still use this repository to start a new Shopify theme project. However, any issues that you will encounter throughout your development will not be supported as the instructor will only answer questions through the course's QnA page.
+
+## Running Shopify in Development Mode
+
+```sh
+shopify theme dev --store jaydot2-stylish-stitches
+```
+
+## Modifications
+
+```sh
+npm init -y
+npm install tailwindcss @tailwindcss/cli
+```
+
+```sh
+npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/application.css
+
+npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/application.css --watch
+```
+
+## References
+
+- [Hero Icons](https://heroicons.com/)

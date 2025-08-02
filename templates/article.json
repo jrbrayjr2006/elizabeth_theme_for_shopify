@@ -1,0 +1,30 @@
+{
+    "sections": {
+        "template": {
+            "type": "template-article",
+            "title": "Article Template",
+            "description": "This template is used for articles.",
+            "blocks": {
+                "title": {
+                    "type": "article_title"
+                },
+                "author": {
+                    "type": "article_author"
+                },
+                "article_published_date": {
+                    "type": "article_published_date"
+                },
+                "featured_image": {
+                    "type": "featured_image"
+                },
+                "article_content": {
+                    "type": "article_content"
+                }
+            },
+            "block_order": ["title", "author", "article_published_date", "featured_image", "article_content"],
+        }
+    },
+    "order": [
+        "template"
+    ],
+}

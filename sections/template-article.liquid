@@ -54,7 +54,22 @@
 {% if blog.comments_enabled? %}
   <div id="comments" class="my-8">
   {% if article.comments_count > 0 %}
-
+    <div class="flex-1 items-center justify-center mx-auto max-w-4xl px-4">
+      <h1 class="text-lg mb-4 font-medium">See what people are saying</h1>
+      {% paginate article.comments by 5 %}
+        <ul class="list-none p-0">
+          {% for comment in article.comments %}
+            <li class="mb-4 p-4 border rounded bg-white shadow-sm">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-gray-700 font-semibold">{{ comment.author }}</span>
+                <span class="text-gray-500 text-sm">{{ comment.created_at | date: '%B %d, %Y' }}</span>
+              </div>
+              <p class="text-gray-800">{{ comment.body }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endpaginate %}
+    </div>
   {% else %}
     <h2 class="text-2xl font-medium mb-4">Be the first to comment!</h2>
     <p class="mb-4">No comments yet. Share your thoughts about this article.</p>

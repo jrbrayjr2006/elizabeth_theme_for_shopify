@@ -57,17 +57,22 @@
     <div class="flex-1 items-center justify-center mx-auto max-w-4xl px-4">
       <h1 class="text-lg mb-4 font-medium">See what people are saying</h1>
       {% paginate article.comments by 5 %}
-        <ul class="list-none p-0">
+        {% comment %} <ul class="list-none p-0"> {% endcomment %}
           {% for comment in article.comments %}
-            <li class="mb-4 p-4 border rounded bg-white shadow-sm">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-gray-700 font-semibold">{{ comment.author }}</span>
+            {% comment %} <li class="mb-4 p-4 border rounded bg-white shadow-sm"> {% endcomment %}
+              <div class="flex-1 items-center justify-between mx-auto max-w-4xl px-4 mb-2">
+                <span class="comment-author text-gray-700 font-semibold">{{ comment.author }}</span>
                 <span class="text-gray-500 text-sm">{{ comment.created_at | date: '%B %d, %Y' }}</span>
+                <p class="text-gray-800 text-sm">{{ comment.content }}</p>
               </div>
-              <p class="text-gray-800">{{ comment.body }}</p>
-            </li>
+              
+            {% comment %} </li> {% endcomment %}
           {% endfor %}
-        </ul>
+
+          {% if paginate.pages > 1 %}
+            {{ paginate | default_pagination }}
+          {% endif %}
+        {% comment %} </ul> {% endcomment %}
       {% endpaginate %}
     </div>
   {% else %}
@@ -78,6 +83,35 @@
   <div id="comment-form" class="mb-8">
     {% form 'new_comment', article %}
       <div class="flex-1- mx-auto items-center justify-center max-w-4xl px-4">
+        {% if form.errors %}
+          
+          <div class="border p-5">
+            <div class="flex flex-row items-center w-full my-3">
+              <div class="text-red-500">
+                {% render 'icon-failed' %}
+              </div>
+              <div class="text-sm font-medium ml-3">
+                Oh no! Your comment could not be posted. Please check the form and try again.
+              </div>
+            </div>
+            <ul class="px-4 mb-3 ml-7 list-decimal">
+              {% for error in form.errors %}
+                <li>
+                  <span>{{ form.errors.messages[error] }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% elsif form.posted_successfully? %}
+          <div class="flex flex-row items-center w-full my-3 p-5">
+            <div class="text-green-500">
+              {% render 'icon-success' %}
+            </div>
+            <div class="text-sm font-medium ml-3">
+              Thank you for your comment! It will be visible once approved. Comment is posted successfully!
+            </div>
+          </div>
+        {% endif %}
         <div class="px-1 md:flex mb-3">
           <div class="md:w-1/2 px-3">
             <label for="comment_name" class="text-gray-700 font-medium uppercase text-xs mb-2">Your Name</label>

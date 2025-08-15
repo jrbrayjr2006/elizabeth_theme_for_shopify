@@ -61,3 +61,5 @@ npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/application.css --watch
 ## References
 
 - [Hero Icons](https://heroicons.com/)
+- [Schemas](https://schema.org/)
+- [Rich Results Test](https://search.google.com/test/rich-results)

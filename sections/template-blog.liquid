@@ -18,7 +18,7 @@
                 <p>{{ article.content | strip_html | truncatewords: 15 }}</p>
               {% endif %}
 
-              <a href="{{ article.url }}" class="block py-4 text-center text-blue-500 hover:underline">Read More</a>
+              <a href="{{ article.url }}" class="block py-4 text-center text-blue-500 hover:underline hover:text-blue-800">{{ section.settings.blog_read_more }}</a>
             </div>
           </div>
         {% endfor %}
@@ -33,6 +33,12 @@
 {
   "name": "Blog",
   "settings": [
+    {
+      "type": "text",
+      "id": "blog_read_more",
+      "label": "Read more label",
+      "default": "Read more"
+    },
     {
       "type": "range",
       "id": "number_of_blog_posts",

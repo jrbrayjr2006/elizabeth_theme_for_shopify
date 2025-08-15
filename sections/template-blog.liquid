@@ -13,7 +13,7 @@
               {% endif %}
               <h2>{{ article.title }}</h2>
               {% if article.excerpt.size > 0 %}
-                <p>{{ article.excerpt }}</p>
+                <p>{{ article.excerpt | strip_html | truncatewords: 15 }}</p>
               {% else %}
                 <p>{{ article.content | strip_html | truncatewords: 15 }}</p>
               {% endif %}

@@ -65,14 +65,13 @@
                 <span class="text-gray-500 text-sm">{{ comment.created_at | date: '%B %d, %Y' }}</span>
                 <p class="text-gray-800 text-sm">{{ comment.content }}</p>
               </div>
-              
-            {% comment %} </li> {% endcomment %}
           {% endfor %}
-
-          {% if paginate.pages > 1 %}
+          <div class="max-w-6xl mx-auto">
+            {% render 'pagination' %}
+          </div>
+          {% comment %} {% if paginate.pages > 1 %}
             {{ paginate | default_pagination }}
-          {% endif %}
-        {% comment %} </ul> {% endcomment %}
+          {% endif %} {% endcomment %}
       {% endpaginate %}
     </div>
   {% else %}

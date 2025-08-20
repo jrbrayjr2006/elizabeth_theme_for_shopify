@@ -33,7 +33,9 @@
                             <span class="text-sm text-gray-500 my-1">{{ item.variant.title | escape }}</span>
                             <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-sm font-medium text-red-500 hover:text-red-800 my-1">Remove</a>
                         </td>
-                        <td></td>
+                        <td>
+                            <input class="w-20 border p-2" name="updates[]" type="number" value="{{ item.quantity }}" />
+                        </td>
                         <td></td>
                       </tr>
                     {% endfor %}

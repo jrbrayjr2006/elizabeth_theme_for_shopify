@@ -8,6 +8,35 @@
             </div>
         </div>
     </div>
+    <div class="max-w-6xl flex flex-col my-10 mx-auto">
+        <form action="{{ routes.cart_url }}" method="POST" novalidate>
+            <table class="table-auto divide-y divide-gray-200 my-4 w-full">
+                <thead>
+                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Product</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Quantity</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Total Price</th>
+                </thead>
+                <tbody>
+                    {% for item in cart.items %}
+                      <tr class="table-row">
+                        <td class="px-2 py-4 flex flex-col justify-center">
+                            <a href="{{ item.url }}" class="flex items-center">
+                                {% if item.image %}
+                                    <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.title | escape }}" class="w-20 h-20 object-cover border">
+                                {% else %}
+                                    {{ 'product-1' | placeholder_svg_tag: 'w-20 h-20 object-cover border', 'Product image' }}
+                                {% endif %}
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
 {% else %}
     <div class="flex mx-auto items-center justify-center max-w-6xl h-60 m-4">
         <div class="text-center">

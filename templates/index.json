@@ -1,7 +1,8 @@
 {
     "sections": {
         "featured-collection": {
-            "type": "featured_collection"
+            "type": "featured-collection",
+            "title": "Featured Collection"
         }
     },
     "order": ["featured-collection"],

@@ -2,7 +2,10 @@
     "sections": {
         "featured-collection": {
             "type": "featured-collection",
-            "title": "Featured Collection"
+            "title": "Featured Collection",
+            "settings": {
+                "featured_collection": "all"
+            }
         }
     },
     "order": ["featured-collection"],

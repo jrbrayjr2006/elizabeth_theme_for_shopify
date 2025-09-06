@@ -3,12 +3,12 @@
       <div class="max-w-6xl mx-auto flex items-center justify-center px-4">
         <div class="flex px-1 mb-3">
           <div class="px-3 md:w-1/2">
-            <label for="contact_name">Name</label>
-            <input type="text" name="contact[name]" id="contact_name" placeholder="Name" required>
+            <label for="contact_name" class="uppercase text-xs text-gray-500 font-medium">Name</label>
+            <input type="text" name="contact[name]" id="contact_name" placeholder="enter name here" class="border px-3 py-4 mb-3 text-gray-700 w-full" required>
           </div>
           <div class="px-3 md:w-1/2">
-            <label for="contact_email">Email Address</label>
-            <input type="email" name="contact[email]" id="contact_email" placeholder="Email" required>
+            <label for="contact_email" class="uppercase text-xs text-gray-500 font-medium">Email Address</label>
+            <input type="email" name="contact[email]" id="contact_email" placeholder="enter email here" class="border px-3 py-4 mb-3 text-gray-700 w-full" required>
           </div>
         </div>
       </div>
@@ -16,7 +16,7 @@
 
 
 
-        <label for="contact_message" class="text-3xl font-medium my-8 md:my-16">Message</label>
+        <label for="contact_message">Message</label>
         <textarea name="contact[body]" id="contact_message" rows="5" placeholder="Your Message" class="border p-2 mb-4 w-full max-w-md" required></textarea>
 
         <input type="submit" value="Submit Message" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 cursor-pointer">

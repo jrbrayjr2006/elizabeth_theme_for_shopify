@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+    --h-94-height: 22rem;
+}

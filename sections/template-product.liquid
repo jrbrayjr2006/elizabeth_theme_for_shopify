@@ -119,7 +119,6 @@
                 </div>
 
                 <div class="my-3">
-                    <button type="submit" name="add" class="w-full bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded">
                     {% if product.selected_or_first_available_variant.available == false %}
                         <button type="submit" name="add" class="w-full bg-gray-500 py-2 px-4 rounded">
                             <span class="text-white">Out of Stock</span>
@@ -129,7 +128,6 @@
                             <span class="text-white">Add to Cart</span>
                         </button>
                     {% endif %}  
-                    </button>
                 </div>
             {% endform %}
         </div>

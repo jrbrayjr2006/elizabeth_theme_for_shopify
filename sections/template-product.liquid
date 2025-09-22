@@ -120,11 +120,15 @@
 
                 <div class="my-3">
                     <button type="submit" name="add" class="w-full bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded">
-                        {% if product.selected_or_first_available_variant.available == false %}
-                            <span class="text-gray-400">Out of Stock</span>
-                        {% else %}
-                            <span class="text-gray-900">Add to Cart</span>
-                        {% endif %}  
+                    {% if product.selected_or_first_available_variant.available == false %}
+                        <button type="submit" name="add" class="w-full bg-gray-500 py-2 px-4 rounded">
+                            <span class="text-white">Out of Stock</span>
+                        </button>
+                    {% else %}
+                        <button type="submit" name="add" class="w-full bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded">
+                            <span class="text-white">Add to Cart</span>
+                        </button>
+                    {% endif %}  
                     </button>
                 </div>
             {% endform %}

@@ -70,8 +70,19 @@
                     <span class="text-lg text-gray-900">{{ product_price.price | money }}</span>
 
                     {% if product_price.price < product_price.compare_at_price %}
-                        <s>
+                        <span class="px-5 py-1 text-sm font-bold bg-red-500 text-white rounded-full mx-4">On Sale</span>
                     {% endif %}
+                </div>
+
+                <div class="my-3">
+                    {% unless product.has_only_default_variant %}
+                        <span class="text-sm text-gray-500">Choose an option...</span>
+                        <div data-url="{{ product.url }}" data-section="{{ section.id }}">
+                            {% for option in product.options_with_values %}
+                                <label for="option-{{ section.id }}">{{ option.name }}</label>
+                            {% endfor %}
+                        </div>
+                    {% endunless %}
                 </div>
             {% endform %}
         </div>

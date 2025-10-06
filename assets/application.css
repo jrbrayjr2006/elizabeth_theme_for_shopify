@@ -233,6 +233,9 @@
   .top-5 {
     top: calc(var(--spacing) * 5);
   }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
@@ -286,6 +289,9 @@
   }
   .-mr-2 {
     margin-right: calc(var(--spacing) * -2);
+  }
+  .mr-5 {
+    margin-right: calc(var(--spacing) * 5);
   }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);

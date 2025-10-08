@@ -1,6 +1,11 @@
 <div class="container mx-auto">
   {% paginate search.results by 10 %}
     <h1 class="text-xl my-4 text-center">Search Results</h1>
+    <div class="flex items-center justify-center">
+      <form method="get" action="{{ routes.search_url }}" class="w-full max-w-md">
+        <input type="search" name="q" value="{{ search.terms }}" placeholder="Search..." class="w-full p-2 border border-gray-300 rounded">
+      </form>
+    </div>
     {% for item in search.results %}
       {% case item.object_type %}
         {% when 'product' %}

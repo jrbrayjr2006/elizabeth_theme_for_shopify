@@ -7,16 +7,25 @@
         <button type="submit" class="bg-gray-900 hover:bg-gray-700 text-white border px-4 py-2 rounded">Search</button>
       </form>
     </div>
-    {% for item in search.results %}
-      {% case item.object_type %}
-        {% when 'product' %}
-          {% render 'product-card', product: item %}
-        {% when second_value %}
-          
-        {% else %}
-          
-      {% endcase %}
-    {% endfor %}
+    {% if search.performed %}
+      {% if search.results.size > 0 %}
+        {% for item in search.results %}
+          {% case item.object_type %}
+            {% when 'product' %}
+              {% render 'product-card', product: item %}
+            {% when second_value %}
+              
+            {% else %}
+              
+          {% endcase %}
+        {% endfor %}
+      {% else %}
+        <div class="text-center my-4">
+          <p>No results found for "{{ search.terms }}". Please try again with different keywords.</p>
+        </div>
+      {% endif %}
+    {% endif %}
+
     {% render 'pagination', pagination: paginate, current_page: search.current_page, total_pages: search.total_pages %}
   {% endpaginate %}
 </div>

@@ -1,0 +1,37 @@
+<div class="flex items-center justify-center min-h-full py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <div>
+            <h1 class="mt-6 text-center text-3xl text-gray-700 font-bold">
+                Activate Your Account
+            </h1>
+            <p class="mt-4 text-center text-sm text-gray-600">
+                Please set your password to activate your account.  
+            </p>
+        </div>
+
+        <div>
+            {% form 'activate_customer_password', class: 'space-y-4', id: 'activate_account_form' %}
+                {% if form.errors %}
+                    <div class="relative border border-red-700 bg-red-100 text-red-700 px-4 py-3" role="alert">
+                        <strong class="font-bold">Error!</strong>
+                        <span class="block sm:inline">{{ form.errors | default_errors }}</span>
+                    </div>
+                {% endif %}
+                <div>
+                    <label for="password">New Password</label>
+                    <input type="password" id="password" name="customer[password]" placeholder="Need Password" class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-300 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" autocomplete="new-password" required>
+                </div>
+
+                <div>
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="customer[password_confirmation]" placeholder="Confirm Password" class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-300 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" autocomplete="new-password" required>
+                </div>
+
+                <div class="block md:flex md:items-center md:justify-between">
+                    <button type="submit" class="w-full border py-2 px-4 text-sm font-medium text-white bg-gray-700 hover:bg-gray-900">Activate Account</button>
+                    <button type="submit" name="decline" class="w-full border py-2 px-4 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-300">Decline Invitation</button>
+                </div>
+            {% endform %}
+        </div>
+    </div>
+</div>
